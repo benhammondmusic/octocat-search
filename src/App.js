@@ -42,11 +42,24 @@ function App() {
     try {
       setUserMessage('loading...');
       setRepos([]);
-      let fetchedRepos = await fetchReposAPI(queryString, queryLanguage, sortBy, orderIsDesc);
-      fetchedRepos.length > 0 ? setUserMessage('') : setUserMessage('No Results Found');
-      setRepos(fetchedRepos);
+      let response = await fetchReposAPI(queryString, queryLanguage, sortBy, orderIsDesc);
+
+      if (response.status === 200) {
+        // extract only the repo array from the full API response
+        let fetchedRepos = [];
+        response.data.items.forEach((repo) => {
+          fetchedRepos.push(repo);
+        });
+
+        fetchedRepos.length > 0 ? setUserMessage('') : setUserMessage('No Results Found');
+        setRepos(fetchedRepos);
+        return;
+      } else if (response.status === 403) {
+        setUserMessage('API Rate Exceeded - Please Wait and Try Again in a Few Minutes');
+      }
     } catch {
-      setUserMessage('Problem fetching repos from GitHub');
+      let errorMessage = 'Problem fetching repos from GitHub';
+      setUserMessage(errorMessage);
     }
   }
 

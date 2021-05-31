@@ -8,15 +8,10 @@ const fetchReposAPI = async function (queryString, queryLanguage, sortBy, orderI
     order: `${orderIsDesc ? 'desc' : 'asc'}`,
   });
 
-  console.log('FETCHING', response.url);
+  console.log('FETCHING', response.url, response);
+  if (response.headers['x-ratelimit-remaining'] < 1) console.log('API Limit Exceeded - Please Try Again in a Few Minutes');
 
-  // extract only the repo array from the full API response
-  let fetchedRepos = [];
-  response.data.items.forEach((repo) => {
-    fetchedRepos.push(repo);
-  });
-
-  return fetchedRepos;
+  return response;
 };
 
 export { fetchReposAPI };

@@ -9,7 +9,7 @@ function RepoResults({ orderIsDesc, sortBy, changeDirection, repos, userMessage 
           {orderIsDesc && sortBy === 'stars' ? '(Highest ★) ▼' : ''}
           {!orderIsDesc && sortBy === 'stars' ? '(Lowest ★) ▲' : ''}
         </button>
-        {!sortBy.length ? 'Showing Best Matches' : ''}
+        {!sortBy.length ? '(Showing Best Matches)' : ''}
       </div>
       <em className="text-blue font-weight-light">{userMessage}</em>
       {repos.map((repo, i) => (

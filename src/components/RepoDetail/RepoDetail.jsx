@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 
 function RepoDetail() {
+  // load selected repo object via react-router
   const location = useLocation();
   const { repo } = location.state;
 

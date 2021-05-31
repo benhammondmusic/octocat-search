@@ -15,6 +15,7 @@ function RepoResults({ orderIsDesc, changeDirection, repos, userMessage }) {
         <article key={repo.id} className={i % 2 === 0 ? 'bg-light rounded m-2 p-2 col-10 col-lg-4' : 'bg-white rounded m-2 p-2 col-10 col-lg-4'}>
           <h4>
             <i className="mr-1 fab fa-github"></i>
+            {/* send specific repo to detail via via "state" */}
             <Link className="repoLink" to={{ pathname: '/detail', state: { repo: repo } }}>
               {repo.name}
             </Link>

@@ -1,7 +1,9 @@
 function QueryBox({ queryString, changeQuery, queryLanguage, setQueryLanguage, sortBy, changeSort, fetchRepos }) {
+  // called from each language filter option
   function handleLanguageChange(e) {
     setQueryLanguage(e.target.value);
   }
+
   return (
     <header className="App-header d-flex flex-column col-12 col-lg-8 m-2 px-5 py-2 font-weight-bold bg-blue rounded">
       <div className="d-flex flex-column align-items-center">

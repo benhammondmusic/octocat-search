@@ -14,8 +14,8 @@ function App() {
   const [userMessage, setUserMessage] = useState('');
   const [queryLanguage, setQueryLanguage] = useState('');
 
-  const changeQuery = (event) => {
-    setQueryString(event.target.value);
+  const changeQuery = (e) => {
+    setQueryString(e.target.value);
   };
 
   const changeDirection = () => {
@@ -26,7 +26,8 @@ function App() {
     sortBy === 'stars' ? setSortBy('default') : setSortBy('stars');
   };
 
-  // refetch from API as a side effect of search-filters changing
+  // refetch repo search results from API as a side effect of search-filters changing
+  // tried onChange for input as well (queryString), but was hitting API too frequently
   useEffect(() => {
     fetchRepos();
   }, [sortBy, orderIsDesc, queryLanguage]);
@@ -59,6 +60,7 @@ function App() {
           </Route>
 
           <Route path="/detail">
+            {/* specific repo object sent via react-router, not as props */}
             <RepoDetail />
           </Route>
         </Switch>

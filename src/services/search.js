@@ -8,6 +8,7 @@ const fetchReposAPI = async function (queryString, queryLanguage, sortBy, orderI
     order: `${orderIsDesc ? 'desc' : 'asc'}`,
   });
 
+  // extract only the repo array from the full API response
   let fetchedRepos = [];
   response.data.items.forEach((repo) => {
     fetchedRepos.push(repo);

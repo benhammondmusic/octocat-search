@@ -14,11 +14,13 @@ To download and configure Octocat Search, please follow these steps in your term
 
 > To run Octocat Search: `npm start`
 
-This will launch a browser and navigate to http://localhost:3000
+This will launch a browser navigated to http://localhost:3000
 
 ## Tests
 
-To run the automated tests for Octocat Search: `npm test`
+> To run the automated tests for Octocat Search: `npm test`.
+
+I am new to testing in React so currently the only test in place assures the the main <App /> component renders without crashing.
 
 # Project Details
 
@@ -48,3 +50,7 @@ User Stories ("As A User"):
 ## Resources
 
 - [Create React App](https://github.com/facebook/create-react-app).
+
+## More Info
+
+- Please visit [benhammond.tech](https://benhammond.tech) for more information on my coding background, other projects in React, Express, and Python, and to get in touch.

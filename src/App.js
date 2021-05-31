@@ -10,7 +10,7 @@ function App() {
   const [repos, setRepos] = useState([]);
   const [queryString, setQueryString] = useState('hotel engine');
   const [orderIsDesc, setOrderIsDesc] = useState(true);
-  const [sortBy, setSortBy] = useState('default');
+  const [sortBy, setSortBy] = useState('');
   const [userMessage, setUserMessage] = useState('');
   const [queryLanguage, setQueryLanguage] = useState('');
 
@@ -23,7 +23,7 @@ function App() {
   };
 
   const changeSort = () => {
-    sortBy === 'stars' ? setSortBy('default') : setSortBy('stars');
+    sortBy === 'stars' ? setSortBy('') : setSortBy('stars');
   };
 
   // refetch repo search results from API as a side effect of search-filters changing
@@ -56,7 +56,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <QueryBox queryString={queryString} changeQuery={changeQuery} queryLanguage={queryLanguage} setQueryLanguage={setQueryLanguage} sortBy={sortBy} changeSort={changeSort} fetchRepos={fetchRepos} />
-            <RepoResults orderIsDesc={orderIsDesc} changeDirection={changeDirection} repos={repos} userMessage={userMessage} />
+            <RepoResults orderIsDesc={orderIsDesc} sortBy={sortBy} changeDirection={changeDirection} repos={repos} userMessage={userMessage} />
           </Route>
 
           <Route path="/detail">

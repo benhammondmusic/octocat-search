@@ -47,6 +47,10 @@ User Stories ("As A User"):
 - Bootstrap was used for a quick, attractive, consistent, and responsive design system
 - To match the company website, this project uses "Helvetica Neue" font and "Hotel Engine Blue": #0159E1
 
+## Considerations
+
+Currently, this app queries the GitHub API without authentication, and is therefor is severely rate-limited. Every filter change submits a new query to find the most relevant matches, however frequent changes can temporarily prevent access. This could be mitigated with several improvements, namely deploying, running the API queries from a backend server using private authentication credentials and the higher rate-limiting. Results could also be cached in a database, and queries only made directly to the API when the cached results are incomplete or stale.
+
 ## Resources
 
 - [Create React App](https://github.com/facebook/create-react-app).

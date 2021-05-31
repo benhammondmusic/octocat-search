@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 
-function RepoResults({ orderIsDesc, changeDirection, repos, userMessage }) {
+function RepoResults({ orderIsDesc, sortBy, changeDirection, repos, userMessage }) {
   return (
     <main className="container d-flex flex-column align-items-center ">
       <div className="d-flex m-2 p-2 col-10 col-lg-4 justify-content-between">
-        <h3>Top Matches:</h3>
+        <h3>Results:</h3>
         <button className="btn btn-link inline text-dark" onClick={() => changeDirection()}>
-          Order
-          {orderIsDesc ? ' ▼' : ' ▲'}
+          {orderIsDesc && sortBy === 'stars' ? '(Highest ★) ▼' : ''}
+          {!orderIsDesc && sortBy === 'stars' ? '(Lowest ★) ▲' : ''}
         </button>
+        {!sortBy.length ? 'Showing Best Matches' : ''}
       </div>
       <em className="text-blue font-weight-light">{userMessage}</em>
       {repos.map((repo, i) => (

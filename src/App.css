@@ -1,3 +1,11 @@
+.repoLink:hover {
+  color: #0159e1 !important;
+  text-decoration-color: #0159e1 !important;
+}
+.repoLink {
+  text-decoration: underline !important;
+}
+
 /* GLOBAL BOOTSTRAP OVERRIDES */
 
 .repoLink {

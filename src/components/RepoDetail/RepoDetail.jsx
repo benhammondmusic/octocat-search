@@ -15,6 +15,7 @@ function RepoDetail() {
               {repo.name.replaceAll('_', ' ')}
             </a>
           </h2>
+
           <div className="owner-box">
             <em className="align-self-end">
               <img className="rounded-circle" height="100" src={repo.owner.avatar_url} alt="avatar" />
@@ -28,6 +29,9 @@ function RepoDetail() {
 
         <div className="bg-white rounded m-4 w-100 d-flex flex-column align-items-center">
           <p className="text-dark p-5">{repo.description === null ? 'No Description' : repo.description}</p>
+          <p className="text-dark">
+            View <a href={repo.html_url}>"{repo.name}" on GitHub</a>
+          </p>
           <small className="text-dark p-2 align-self-end">
             {repo.language} - {repo.stargazers_count}★
           </small>

@@ -13,7 +13,7 @@ function RepoResults({ orderIsDesc, sortBy, changeDirection, repos, userMessage 
       </div>
       <em className="text-blue font-weight-light">{userMessage}</em>
       {repos.map((repo, i) => (
-        <article key={repo.id} className={i % 2 === 0 ? 'bg-light rounded m-2 p-2 col-10 col-lg-4' : 'bg-white rounded m-2 p-2 col-10 col-lg-4'}>
+        <article key={repo.id} className={i % 2 === 0 ? 'bg-light rounded m-2 p-2 col-10 col-lg-4 repoListItem' : 'bg-white rounded m-2 p-2 col-10 col-lg-4 repoListItem'}>
           <h4>
             <i className="mr-1 fab fa-github"></i>
             {/* send specific repo to detail via via "state" */}

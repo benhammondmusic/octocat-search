@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Octocat Search
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Octocat Search is a repository ("repo") search app which uses the [Github repository search API](https://docs.github.com/en/rest/reference/search#search-repositories) to search the collection of public projects and match them to a user's queries
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+To download and configure Octocat Search, please follow these steps in your terminal:
+
+1. Clone this repo down locally: `git clone https://github.com/benhammondmusic/octocat-search/`
+2. Enter the local repo: `cd octocat-search`
+3. Install dependencies: `npm install`
+
+## Run
+
+To run Octocat Search: `npm start` (this will launch a browser and navigate to http://localhost:3000)
+
+## Tests
+
+To run the automated tests for Octocat Search: `npm test`
+
+# Project Details
+
+## Minimum Viable Product (MVP)
+
+User Stories ("As A User"):
+
+- AAU I want to enter search terms to find matching repos
+- AAU I want to click "Search" to query GitHub and see a list displayed
+- AAU I want to see matches ordered by GitHub's "best-matched" ranking by default
+- AAU I want to optionally see matches ranked by their number of stars
+- AAU I want to be able to view the results ordered either Best-to-Worst or Worst-to-Best
+- AAU I want to be able to filter the search to only display results coded in a selected coding or markup language
+- AAU I want to click on one of the displayed results to see a details page with more info including:
+  - Repository name
+  - Description
+  - Number of stars
+  - Language
+  - Owner's name
+- AAU I want to view this app on a variety of devices and screen widths in a responsive way
+
+## Style Guide
+
+- Bootstrap was used for a quick, attractive, consistent, and responsive design system
+- To match the company website, this project uses "Helvetica Neue" font and "Hotel Engine Blue": #0159E1
+
+## Resources
+
+- [Create React App](https://github.com/facebook/create-react-app).
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

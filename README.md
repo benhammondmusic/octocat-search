@@ -12,7 +12,9 @@ To download and configure Octocat Search, please follow these steps in your term
 
 ## Run
 
-To run Octocat Search: `npm start` (this will launch a browser and navigate to http://localhost:3000)
+> To run Octocat Search: `npm start`
+
+This will launch a browser and navigate to http://localhost:3000
 
 ## Tests
 
@@ -46,5 +48,3 @@ User Stories ("As A User"):
 ## Resources
 
 - [Create React App](https://github.com/facebook/create-react-app).
-
-### `npm start`

@@ -1,0 +1,15 @@
+/* GLOBAL BOOTSTRAP OVERRIDES */
+
+.repoLink {
+  color: #292b2c !important;
+}
+
+.text-info,
+.text-blue {
+  color: #0159e1 !important;
+}
+.bg-blue,
+a.bg-blue {
+  color: #fff !important;
+  background-color: #0159e1 !important;
+}

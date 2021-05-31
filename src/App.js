@@ -1,18 +1,61 @@
+import { useEffect, useState } from 'react';
+import { fetchReposAPI } from './services/search';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import QueryBox from './components/QueryBox/QueryBox';
-import RepoDetail from './components/RepoDetail/RepoDetail';
 import RepoResults from './components/RepoResults/RepoResults';
-
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import RepoDetail from './components/RepoDetail/RepoDetail';
 
 function App() {
+  const [repos, setRepos] = useState([]);
+  const [queryString, setQueryString] = useState('hotel engine');
+  const [orderIsDesc, setOrderIsDesc] = useState(true);
+  const [sortBy, setSortBy] = useState('default');
+  const [userMessage, setUserMessage] = useState('');
+  const [queryLanguage, setQueryLanguage] = useState('');
+
+  const changeQuery = (event) => {
+    setQueryString(event.target.value);
+  };
+
+  const changeDirection = () => {
+    orderIsDesc ? setOrderIsDesc(false) : setOrderIsDesc(true);
+  };
+
+  const changeSort = () => {
+    sortBy === 'stars' ? setSortBy('default') : setSortBy('stars');
+  };
+
+  // refetch from API as a side effect of search-filters changing
+  useEffect(() => {
+    fetchRepos();
+  }, [sortBy, orderIsDesc, queryLanguage]);
+
+  async function fetchRepos() {
+    if (queryString.trim() === '') {
+      setUserMessage('Empty search query. Please add search term(s)');
+      setRepos([]);
+      return;
+    }
+
+    try {
+      setUserMessage('loading...');
+      setRepos([]);
+      let fetchedRepos = await fetchReposAPI(queryString, queryLanguage, sortBy, orderIsDesc);
+      fetchedRepos.length > 0 ? setUserMessage('') : setUserMessage('No Results Found');
+      setRepos(fetchedRepos);
+    } catch {
+      setUserMessage('Problem fetching repos from GitHub');
+    }
+  }
+
   return (
-    <div className="App">
+    <div className="App d-flex flex-column align-items-center container">
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <QueryBox />
-            <RepoResults />
+            <QueryBox queryString={queryString} changeQuery={changeQuery} queryLanguage={queryLanguage} setQueryLanguage={setQueryLanguage} sortBy={sortBy} changeSort={changeSort} fetchRepos={fetchRepos} />
+            <RepoResults orderIsDesc={orderIsDesc} changeDirection={changeDirection} repos={repos} userMessage={userMessage} />
           </Route>
 
           <Route path="/detail">
